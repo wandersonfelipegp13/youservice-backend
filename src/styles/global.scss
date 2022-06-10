@@ -1,0 +1,42 @@
+:root {
+    --bg-color: #101010;
+    --text-white: #fff;
+    --yellow: #FBFF35;
+}
+
+::selection {
+    color: var(--bg-color);
+    background: #FCFF58;
+}
+
+// scroll bar
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 2px;
+}
+
+*::-webkit-scrollbar-track {
+    background: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--yellow);
+    border-radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: 2px;
+    scrollbar-color: var(--yellow) none;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+}
+
+body, input, button, textarea {
+    font: 400 16px 'Ubuntu', sans-serif;
+}

@@ -1,7 +1,8 @@
+import { Login } from "./pages/Login";
 
 function App() {
   return (
-    <h1>Hello world! (º-º)b</h1>
+    <Login />
   );
 }
 

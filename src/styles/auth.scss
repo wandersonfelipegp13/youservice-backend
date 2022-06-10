@@ -1,0 +1,73 @@
+#page-auth {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 2%;
+
+    > img {
+        align-self: flex-start;
+    }
+
+    > h2 {
+        margin-top: 3%;
+        font: 300 48px 'Ubuntu', sans-serif;
+    }
+
+    .container-auth {
+        margin-top: 2%;
+        width: 100%;
+        max-width: 800px;
+        padding: 5% 7%;
+        border-radius: .5em;
+        background-color: #242424;
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+        background-color: #101010;
+        padding: 1em;
+        margin-bottom: .7em;
+        border-radius: .5em;
+    }
+
+    .input-container span {
+        color: #242424;
+        width: 24px;
+        height: 24px;
+        margin-right: .3em;
+    }
+
+    .input-container input {
+        width: 100%;
+        background-color: #101010;
+        border: none;
+        color: #515151;
+        font: 400 24px 'Ubuntu', sans-serif;
+    }
+
+    .input-container input::placeholder {
+        color: #515151;
+    }
+
+    .input-container input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+
+    .container-auth a {
+        display: block;
+        margin-top: 1.3em;
+        width: 100%;
+        font-size: 24px;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .container-auth a span {
+        margin-left: .1em;
+        color: #FBFF35;
+    }
+}
