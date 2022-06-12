@@ -9,7 +9,7 @@ export function Initial() {
   const navigate = useNavigate();
 
   function navigateToLogin() {
-    navigate('login')
+    navigate('/login')
   }
 
   return (
