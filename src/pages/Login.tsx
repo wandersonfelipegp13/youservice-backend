@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import logoImg from "../assets/images/logo.svg";
 import { Button } from "../components/Button";
 
@@ -18,7 +20,7 @@ export function Login() {
             <input type="password" name="password" id="password" placeholder="Senha" />
         </div>
         <Button type="submit">Entrar</Button>
-        <a href="/">Não tem uma conta? <span>Cadastre-se</span></a>
+        <Link to="/">Não tem uma conta? <span>Cadastre-se</span></Link>
       </div>
     </main>
   );
