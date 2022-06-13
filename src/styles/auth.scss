@@ -23,39 +23,6 @@
         background-color: #242424;
     }
 
-    .input-container {
-        display: flex;
-        align-items: center;
-        background-color: #101010;
-        padding: 1em;
-        margin-bottom: .7em;
-        border-radius: .5em;
-    }
-
-    .input-container span {
-        color: #242424;
-        width: 24px;
-        height: 24px;
-        margin-right: .3em;
-    }
-
-    .input-container input {
-        width: 100%;
-        background-color: #101010;
-        border: none;
-        color: #515151;
-        font: 400 24px 'Ubuntu', sans-serif;
-    }
-
-    .input-container input::placeholder {
-        color: #515151;
-    }
-
-    .input-container input:focus {
-        box-shadow: 0 0 0 0;
-        outline: 0;
-    }
-
     .container-auth a {
         display: block;
         margin-top: 1.3em;

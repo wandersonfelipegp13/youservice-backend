@@ -1,0 +1,33 @@
+.input-container {
+    display: flex;
+    align-items: center;
+    background-color: #101010;
+    padding: 1em;
+    margin-bottom: .7em;
+    border-radius: .5em;
+
+    > span {
+        color: #242424;
+        width: 24px;
+        height: 24px;
+        margin-right: .3em;
+    }
+
+    > input, select {
+        width: 100%;
+        background-color: #101010;
+        border: none;
+        color: white;
+        font: 400 24px 'Ubuntu', sans-serif;
+    }
+
+    > input::placeholder, select::placeholder {
+        color: #515151;
+    }
+
+    > input:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+    
+}

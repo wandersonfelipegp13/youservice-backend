@@ -1,0 +1,24 @@
+:root {
+    --danger: #EA2C43;
+    --black: #101010;
+}
+.danger-button {
+    padding: .3em;
+    border-radius: .2em;
+    font-weight: 500;
+    background-color: transparent;
+    color: var(--danger);
+    width: 100%;
+    cursor: pointer;
+    border: 3px solid var(--danger);
+    font-size: 36px;
+    margin-top: 1em;
+    text-align: center;
+
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: var(--danger);
+        color: var(--black);
+    }
+}
