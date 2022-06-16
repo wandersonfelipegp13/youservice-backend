@@ -1,5 +1,7 @@
 import { useAuth } from "../hooks/useAuth";
 
+import { useNavigate } from "react-router-dom";
+
 import "../styles/new-service.scss";
 import "../styles/input-container.scss";
 import { Button } from "../components/Button";
@@ -9,6 +11,9 @@ import { FormEvent, useState } from "react";
 import { database } from "../services/firebase.";
 
 export function NewService() {
+
+  const navigate = useNavigate();
+
   const { user } = useAuth();
 
   const [newServiceCategory, setNewServiceCategory] = useState("");
@@ -32,6 +37,8 @@ export function NewService() {
       description: newServiceDescription,
       authorId: user?.id
     })
+
+    navigate(`/service/${firebaseService.key}`)
   }
 
   return (

@@ -9,8 +9,8 @@ type MenuBarProps = {
 export function MenuBar(props: MenuBarProps) {
   return (
     <div className="menu-bar">
-      <img src={logoImg} alt="YouService" />
-      {props?.children}
+      <img id="logo" src={logoImg} alt="YouService" />
+      <div className="menu-content">{props?.children}</div>
     </div>
   );
 }

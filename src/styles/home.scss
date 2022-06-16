@@ -1,0 +1,232 @@
+:root {
+    --yellow: #EDF134;
+    --black: #101010;
+}
+
+.container {
+    padding: 2em 1em;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-content {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 2em;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    
+    transition: filter 0.2s;
+
+    &:hover {
+        filter: brightness(0.6);
+    }
+}
+
+.menu-link span {
+    margin-right: .3em;
+}
+
+.menu-exit {
+    color: #EA2C43;
+}
+
+.photo-profile {
+    border-radius: 50%;
+    width: 2em;
+    border: 2px solid #A1A1A1;
+}
+
+.filters-container {
+    max-width: 20%;
+
+    > h3 {
+        font-size: 20px;
+        margin-bottom: .6em;
+    }
+    
+}
+
+// Category
+
+.categories {
+    display: inline-block;
+    margin-bottom: .6em;
+}
+
+.category {
+    display: flex;
+    margin-bottom: .3em;
+    
+    > .category-name {
+        margin-left: .6em;
+    }
+}
+
+// Radio Button
+
+.custom-radio-button {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--yellow);
+    border-radius: 50%;
+}
+
+.custom-radio-button .checkmark {
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    border-radius: 50%;
+    background-color: var(--yellow);
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.custom-radio-button input {
+    display: none;
+}
+
+.custom-radio-button input:checked + .checkmark {
+    opacity: 1;
+}
+
+// City
+
+.city {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .6em;
+
+    > select {
+        width: 100%;
+        margin-bottom: .3em;
+        background-color: var(--yellow);
+        color: var(--black);
+        border: none;
+        font-weight: 500;
+        border-radius: .3em;
+        padding: .1em .3em;
+    }
+
+
+    > select::placeholder {
+        color: #515151;
+    }
+
+    > select:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+}
+
+// Price 
+
+.price {
+    display: flex;
+    flex-direction: column;
+
+    > .price-range {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: var(--black);
+        margin-bottom: .3em;
+        background-color: var(--yellow);
+        border-radius: .3em;
+        padding: .1em .3em;
+        font-weight: 500;
+    }
+
+    > .price-range input {
+        width: 100%;
+        background-color: transparent;
+        color: var(--black);
+        border: none;
+        font-weight: 400;
+        margin-left: .2em;
+    }
+
+    > .price-range input::placeholder{
+        color: var(--black);
+    }
+
+    > .price-range input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+}
+
+// Services
+
+#services {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 4em 2em 2em;
+}
+
+.service {
+    width: 100%;
+    display: flex;
+    background-color: #2E2E2E;
+    overflow: hidden;
+    border-radius: .7em;
+    max-height: 130px;
+    margin-bottom: 1em;
+    cursor: pointer;
+
+    transition: filter 0.3s ease;
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+}
+
+.service img {
+    height: 100%;    
+}
+
+.service-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1em 1em;
+}
+
+.service-name {
+    font-size: 26px;
+    margin-bottom: .3em;
+}
+
+.service-price {
+    margin-bottom: .4em;
+}
+
+.price-label {
+    font-size: 16px;
+}
+
+.price-value {
+    font-size: 20px;
+    margin-left: .2em;
+}
+
+.service-description {
+    font-size: 16px;
+}

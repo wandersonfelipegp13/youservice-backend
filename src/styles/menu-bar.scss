@@ -4,6 +4,12 @@
     background-color: #242424;
 }
 
-.menu-bar img {
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#logo {
     height: 2em;
 }
