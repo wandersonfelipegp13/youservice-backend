@@ -58,6 +58,8 @@
     
 }
 
+
+
 // Category
 
 .categories {
@@ -189,14 +191,15 @@
     margin-bottom: 1em;
     cursor: pointer;
 
-    transition: filter 0.3s ease;
+    transition: background-color 0.2s ease;
 
     &:hover {
-        filter: brightness(1.2);
+        background-color: rgba(46, 46, 46, 0.6);
     }
 }
 
 .service img {
+    align-self: flex-start;
     height: 100%;    
 }
 
@@ -230,3 +233,116 @@
 .service-description {
     font-size: 16px;
 }
+
+// Service popup
+
+#service-popup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+#popup-content {
+    background-color: #242424;
+    border-radius: 1.5em;
+    overflow: hidden;
+}
+
+#popup-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+#popup-close {
+    color: #EA2C43;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+#details {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 3em 2em 3em;
+}
+
+#main-info {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2em;
+
+    > img {
+        width: 40%;
+        height: 100%;
+        border-radius: 50%;
+    }
+}
+
+#contact-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0em 1em;
+   
+    #popup-name {
+        font-size: 24px;
+        margin-bottom: .5em;
+    }
+
+    #popup-price {
+        margin-bottom: .5em;
+    }
+
+    #popup-label {
+        font-size: 12px;
+    }
+
+    #popup-value {
+        font-size: 20px;
+        margin-left: .2em;
+    }
+
+    #popup-phone, #popup-mail {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        margin-bottom: .3em;
+
+        > span {
+            margin-right: .3em;
+        }
+    }
+}
+
+#contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 300;
+    justify-content: center;
+    background-color: #4ECB5D;
+    padding: .5em;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+
+
+    > img {
+        margin-left: .3em;
+        width: 40px;
+    }
+
+    transition: filter 0.2s;
+
+    &:hover {
+        filter: brightness(1.13);
+    }
+}
+

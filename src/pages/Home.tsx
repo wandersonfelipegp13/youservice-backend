@@ -3,11 +3,72 @@ import { MenuBar } from "../components/MenuBar";
 import { useAuth } from "../hooks/useAuth";
 
 import "../styles/home.scss";
+import whatsappIcon from "../assets/images/whatsapp.svg";
 
 export function Home() {
   const { user } = useAuth();
+
+  function hidePopup() {
+    var popup = document.getElementById("service-popup");
+    if (popup) popup.style.display = "none";
+  }
+
+  function showPopup() {
+    var popup = document.getElementById("service-popup");
+    if (popup) popup.style.display = "flex";
+  }
+
   return (
     <main id="page-home">
+      <div id="service-popup">
+        <div id="popup-content">
+          <div id="popup-container">
+            <span
+              onClick={hidePopup}
+              id="popup-close"
+              className="material-symbols-rounded"
+            >
+              close
+            </span>
+
+            <div id="details">
+              <div id="main-info">
+                <img src={user?.avatar} alt="Service" />
+
+                <div id="contact-details">
+                  <span id="popup-name">{user?.name}</span>
+                  <div id="popup-price">
+                    <span id="popup-label">R$</span>
+                    <span id="popup-value">32,00</span>
+                  </div>
+                  <span id="popup-phone">
+                    <span className="material-icons-round">phone</span>
+                    (64) 99299-9999
+                  </span>
+                  <span id="popup-mail">
+                    <span className="material-icons-round">email</span>
+                    contact@mail.com
+                  </span>
+                </div>
+              </div>
+
+              <span id="description">
+                Poda de grama, cortagem de árvores, capinagem, plantio de grama.
+              </span>
+            </div>
+          </div>
+
+          <a
+            id="contact"
+            href="https://web.whatsapp.com/send?phone=5564999083524&text=Olá tenho interesse em seus serviços."
+            target="_blank" rel="noreferrer"
+          >
+            <span>Entrar em contato no Whatsapp</span>
+            <img src={whatsappIcon} alt="Whatsapp" />
+          </a>
+        </div>
+      </div>
+
       <MenuBar>
         <Link to="/" className="menu-link menu-exit">
           <span className="material-symbols-rounded">logout</span>
@@ -89,7 +150,7 @@ export function Home() {
           </div>
         </div>
         <div id="services">
-          <div className="service">
+          <div className="service" id="service-01" onClick={showPopup}>
             <img src={user?.avatar} alt="Service" />
             <div className="service-content">
               <span className="service-name">{user?.name}</span>
