@@ -17,6 +17,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/service/new" element={<NewService />} />
             <Route path="/service/:id" element={<NewService />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
       </AuthContextProvider>
     </BrowserRouter>

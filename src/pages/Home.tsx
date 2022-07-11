@@ -139,13 +139,16 @@ export function Home() {
           </div>
           <h3>Preço</h3>
           <div className="price">
-            <div className="price-range">
+            <div className="price-range" id="price-min">
               <span>R$</span>
               <input type="number" name="min" id="" placeholder="Min." />
             </div>
-            <div className="price-range">
+            <div className="price-range" id="price-max">
               <span>R$</span>
               <input type="number" name="max" id="" placeholder="Max." />
+            </div>
+            <div id="price-button">
+              <span className="material-icons-round">arrow_forward_ios</span>
             </div>
           </div>
         </div>
