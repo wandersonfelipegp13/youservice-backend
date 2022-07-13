@@ -14,6 +14,10 @@ export function ServiceList() {
     navigate("/services/new");
   }
 
+  function createNewService() {
+    navigate("/services/new");
+  }
+
   return (
     <main id="page-new-service">
       <MenuBar></MenuBar>
@@ -54,7 +58,41 @@ export function ServiceList() {
             </div>
             <span className="service-list-price">R$ 32,00</span>
           </div>
+
+          <div className="service-info" onClick={editService}>
+            <div className="service-resume">
+              <span className="service-category">Jardinagem</span>
+              <span className="service-description">
+                Poda de grama, cortagem de árvores, capinagem, plantio de...
+              </span>
+            </div>
+            <span className="service-list-price">R$ 32,00</span>
+          </div>
+
+          <div className="service-info" onClick={editService}>
+            <div className="service-resume">
+              <span className="service-category">Jardinagem</span>
+              <span className="service-description">
+                Poda de grama, cortagem de árvores, capinagem, plantio de...
+              </span>
+            </div>
+            <span className="service-list-price">R$ 32,00</span>
+          </div>
+
+          <div className="service-info" onClick={editService}>
+            <div className="service-resume">
+              <span className="service-category">Jardinagem</span>
+              <span className="service-description">
+                Poda de grama, cortagem de árvores, capinagem, plantio de...
+              </span>
+            </div>
+            <span className="service-list-price">R$ 32,00</span>
+          </div>
+
         </div>
+      </div>
+      <div className="fab-add" onClick={createNewService}>
+        <span className="material-icons-round">add</span>
       </div>
     </main>
   );
