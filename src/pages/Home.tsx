@@ -74,7 +74,7 @@ export function Home() {
           <span className="material-symbols-rounded">logout</span>
           Sair
         </Link>
-        <Link to="/" className="menu-link">
+        <Link to="/services" className="menu-link">
           <span className="material-symbols-rounded">format_list_bulleted</span>
           Meus Serviços
         </Link>

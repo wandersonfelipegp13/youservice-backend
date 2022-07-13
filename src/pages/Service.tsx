@@ -34,7 +34,7 @@ export function Service() {
       return;
 
     const serviceRef = database.ref("services");
-    const firebaseService = await serviceRef.push({
+    await serviceRef.push({
       category: newServiceCategory,
       price: newServicePrice,
       description: newServiceDescription,
@@ -43,11 +43,11 @@ export function Service() {
       city: newServiceCity,
     });
 
-    navigate(`/service/${firebaseService.key}`);
+    navigate(`/services`);
   }
 
   function backToHome() {
-    navigate("/home");
+    navigate("/services");
   }
 
   return (

@@ -5,7 +5,7 @@ import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import { Home } from "./pages/Home";
 import { Service } from "./pages/Service";
-
+import { ServiceList } from "./pages/ServiceList";
 
 import { AuthContextProvider } from "./contexts/AuthContext";
 
@@ -18,8 +18,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/service/new" element={<Service />} />
-            <Route path="/service/:id" element={<Service />} />
+            <Route path="/services" element={<ServiceList />} />
+            <Route path="/services/new" element={<Service />} />
+            <Route path="/services/:id" element={<Service />} />
             <Route path="/home" element={<Home />} />
           </Routes>
       </AuthContextProvider>
