@@ -37,7 +37,7 @@ export function Login() {
           />
         </div>
         <Button onClick={signIn}>Entrar</Button>
-        <Link to="/">
+        <Link to="/profile">
           Não tem uma conta? <span>Cadastre-se</span>
         </Link>
       </div>
