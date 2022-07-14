@@ -61,7 +61,8 @@ export function Home() {
           <a
             id="contact"
             href="https://web.whatsapp.com/send?phone=5564999083524&text=Olá tenho interesse em seus serviços."
-            target="_blank" rel="noreferrer"
+            target="_blank"
+            rel="noreferrer"
           >
             <span>Entrar em contato no Whatsapp</span>
             <img src={whatsappIcon} alt="Whatsapp" />
@@ -74,15 +75,21 @@ export function Home() {
           <span className="material-symbols-rounded">logout</span>
           Sair
         </Link>
+        <Link to="/categories" className="menu-link">
+          <span className="material-icons-round">category</span>
+          Categorias
+        </Link>
         <Link to="/services" className="menu-link">
           <span className="material-symbols-rounded">format_list_bulleted</span>
           Meus Serviços
         </Link>
-        <img
-          src={user?.avatar}
-          alt="Foto de perfil"
-          className="photo-profile"
-        />
+        <Link to="/profile">
+          <img
+            src={user?.avatar}
+            alt="Foto de perfil"
+            className="photo-profile"
+          />
+        </Link>
       </MenuBar>
       <div className="home-content">
         <div className="filters-container container">

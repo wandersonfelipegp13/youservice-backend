@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../assets/images/logo.svg";
 import { Button } from "../components/Button";
 import { useAuth } from "../hooks/useAuth";
@@ -9,8 +9,11 @@ import "../styles/profile.scss";
 
 export function Profile() {
   const { user } = useAuth();
+  const navigate = useNavigate();
 
-  function none() {}
+  function saveProfile() {
+      navigate('/home')
+  }
 
   return (
     <main id="page-auth">
@@ -31,7 +34,6 @@ export function Profile() {
             name="name"
             id="name"
             placeholder="Nome"
-            value={user == null ? "" : user.name}
           />
         </div>
         <div className="input-container">
@@ -51,7 +53,7 @@ export function Profile() {
             placeholder="Senha"
           />
         </div>
-        <Button onClick={none}>{user == null ? "Cadastrar" : "Salvar"}</Button>
+        <Button onClick={saveProfile}>{user == null ? "Cadastrar" : "Salvar"}</Button>
         {user == null ? (
           <Link to="/login">
             Já tem uma conta? <span>Entre aqui</span>
