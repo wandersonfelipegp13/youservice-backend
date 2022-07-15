@@ -17,27 +17,25 @@ export function Profile() {
   const [userPhone, setUserPhone] = useState("");
   const [userEmail, setUserEmail] = useState("");
 
-  function handleSaveUser(event: FormEvent) {
+  async function handleSaveUser(event: FormEvent) {
     event.preventDefault();
 
     if (userName.trim() === "") {
-      showErrorToast("Insira seu nome")
+      showErrorToast("Insira seu nome");
       return;
     }
 
     if (userPhone.trim() === "") {
-      showErrorToast("Insira seu telefone")
+      showErrorToast("Insira seu telefone");
       return;
     }
 
     if (userEmail.trim() === "") {
-      showErrorToast("Insira seu email")
+      showErrorToast("Insira seu email");
       return;
     }
 
-    if (user == null) {
-      navigate("/home");
-    }
+    navigate('/home')
   }
 
   function showErrorToast(message: String) {
@@ -50,7 +48,7 @@ export function Profile() {
         primary: "#101010",
         secondary: "#FBFF35",
       },
-    });
+    })
   }
 
   return (

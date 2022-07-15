@@ -9,6 +9,7 @@ import { DangerButton } from "../components/DangerButton";
 import { MenuBar } from "../components/MenuBar";
 import { FormEvent, useState } from "react";
 import { database } from "../services/firebase.";
+import toast, { Toaster } from "react-hot-toast";
 
 export function Service() {
   const navigate = useNavigate();
@@ -24,15 +25,31 @@ export function Service() {
   async function handleCreateService(event: FormEvent) {
     event.preventDefault();
 
-    if (
-      newServiceCategory.trim() === "" ||
-      newServicePrice.trim() === "" ||
-      newServiceDescription.trim() === "" ||
-      newServiceUF.trim() === "" ||
-      newServiceCity.trim() === ""
-    )
+    if (newServiceCategory.trim() === "") {
+      showErrorToast("Informe a categoria");
       return;
+    }
 
+    if (newServicePrice.trim() === "") {
+      showErrorToast("Insira o preço");
+      return;
+    }
+
+    if (newServiceUF.trim() === "") {
+      showErrorToast("Insira a UF");
+      return;
+    }
+    
+    if (newServiceCity.trim() === "") {
+      showErrorToast("Insira a cidade");
+      return;
+    }
+
+    if (newServiceDescription.trim() === "" ) {
+      showErrorToast("Insira uma descrição");
+      return;
+    }
+      
     const serviceRef = database.ref("services");
     await serviceRef.push({
       category: newServiceCategory,
@@ -48,6 +65,19 @@ export function Service() {
 
   function backToHome() {
     navigate("/services");
+  }
+
+  function showErrorToast(message: String) {
+    toast.error(message.toString(), {
+      style: {
+        color: "#101010",
+        background: "#FBFF35",
+      },
+      iconTheme: {
+        primary: "#101010",
+        secondary: "#FBFF35",
+      },
+    })
   }
 
   return (
@@ -89,7 +119,7 @@ export function Service() {
                 onChange={(event) => setNewServiceUF(event.target.value)}
                 value={newServiceUF}
               >
-                <option value="none">UF</option>
+                <option value="">UF</option>
                 <option value="GO">GO</option>
                 <option value="MG">MG</option>
               </select>
@@ -102,7 +132,7 @@ export function Service() {
                 onChange={(event) => setNewServiceCity(event.target.value)}
                 value={newServiceCity}
               >
-                <option value="none">Cidade</option>
+                <option value="">Cidade</option>
                 <option value="urutai">Urutaí</option>
                 <option value="pires">Pires do Rio</option>
               </select>
@@ -129,6 +159,7 @@ export function Service() {
           </div>
         </form>
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </main>
   );
 }
