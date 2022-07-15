@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../assets/images/logo.svg";
 import { Button } from "../components/Button";
 import { useAuth } from "../hooks/useAuth";
+import { useState, FormEvent } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 import "../styles/auth.scss";
 import "../styles/input-container.scss";
@@ -11,15 +13,51 @@ export function Profile() {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  function saveProfile() {
-      navigate('/home')
+  const [userName, setUserName] = useState("");
+  const [userPhone, setUserPhone] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+
+  function handleSaveUser(event: FormEvent) {
+    event.preventDefault();
+
+    if (userName.trim() === "") {
+      showErrorToast("Insira seu nome")
+      return;
+    }
+
+    if (userPhone.trim() === "") {
+      showErrorToast("Insira seu telefone")
+      return;
+    }
+
+    if (userEmail.trim() === "") {
+      showErrorToast("Insira seu email")
+      return;
+    }
+
+    if (user == null) {
+      navigate("/home");
+    }
+  }
+
+  function showErrorToast(message: String) {
+    toast.error(message.toString(), {
+      style: {
+        color: "#101010",
+        background: "#FBFF35",
+      },
+      iconTheme: {
+        primary: "#101010",
+        secondary: "#FBFF35",
+      },
+    });
   }
 
   return (
     <main id="page-auth">
       <img src={logoImg} alt="YouService" />
       {user != null ? <h2>Edição de Perfil</h2> : <h2>Crie um conta</h2>}
-      <div className="container-auth">
+      <form className="container-auth" onSubmit={handleSaveUser}>
         <div className="profile-photo">
           {user != null ? (
             <img src={user.avatar} alt={user.name} />
@@ -34,15 +72,28 @@ export function Profile() {
             name="name"
             id="name"
             placeholder="Nome"
+            onChange={(event) => setUserName(event.target.value)}
           />
         </div>
         <div className="input-container">
           <span className="material-icons">phone</span>
-          <input type="tel" name="phone" id="phone" placeholder="Telefone" />
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="Telefone"
+            onChange={(event) => setUserPhone(event.target.value)}
+          />
         </div>
         <div className="input-container">
           <span className="material-icons">mail</span>
-          <input type="email" name="email" id="email" placeholder="Email" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            onChange={(event) => setUserEmail(event.target.value)}
+          />
         </div>
         <div className="input-container">
           <span className="material-icons">lock</span>
@@ -53,7 +104,7 @@ export function Profile() {
             placeholder="Senha"
           />
         </div>
-        <Button onClick={saveProfile}>{user == null ? "Cadastrar" : "Salvar"}</Button>
+        <Button type="submit">{user == null ? "Cadastrar" : "Salvar"}</Button>
         {user == null ? (
           <Link to="/login">
             Já tem uma conta? <span>Entre aqui</span>
@@ -61,7 +112,8 @@ export function Profile() {
         ) : (
           <></>
         )}
-      </div>
+      </form>
+      <Toaster position="top-right" reverseOrder={false} />
     </main>
   );
 }
