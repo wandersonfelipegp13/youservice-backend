@@ -21,7 +21,6 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/services" element={<ServiceList />} />
             <Route path="/services/new" element={<Service />} />
-            <Route path="/services/:id" element={<Service />} />
             <Route path="/categories" element={<Category />} />
           </Routes>
       </AuthContextProvider>

@@ -4,6 +4,7 @@ import { auth, firebase } from "../services/firebase.";
 type User = {
   id: string;
   name: string;
+  email: string;
   avatar: string;
 };
 
@@ -24,9 +25,9 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        const { displayName, photoURL, uid } = user;
+        const { displayName, photoURL, uid, email } = user;
 
-        if (!displayName || !photoURL) {
+        if (!displayName || !photoURL || !email) {
           throw new Error("Missing information from Google Account");
         }
 
@@ -34,6 +35,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
           id: uid,
           name: displayName,
           avatar: photoURL,
+          email: email,
         });
       }
     });
@@ -49,9 +51,9 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     const result = await auth.signInWithPopup(provider);
 
     if (result.user) {
-      const { displayName, photoURL, uid } = result.user;
+      const { displayName, photoURL, uid, email } = result.user;
 
-      if (!displayName || !photoURL) {
+      if (!displayName || !photoURL || !email) {
         throw new Error("Missing information from Google Account");
       }
 
@@ -59,6 +61,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         id: uid,
         name: displayName,
         avatar: photoURL,
+        email: email,
       });
     }
   }

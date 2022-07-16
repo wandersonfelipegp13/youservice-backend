@@ -7,7 +7,7 @@ import "../styles/input-container.scss";
 import { Button } from "../components/Button";
 import { DangerButton } from "../components/DangerButton";
 import { MenuBar } from "../components/MenuBar";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { database } from "../services/firebase.";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -15,6 +15,10 @@ export function Service() {
   const navigate = useNavigate();
 
   const { user } = useAuth();
+
+  useEffect(() => {
+    if (!user) navigate("/");
+  }, []);
 
   const [newServiceCategory, setNewServiceCategory] = useState("");
   const [newServicePrice, setNewServicePrice] = useState("");
@@ -39,23 +43,26 @@ export function Service() {
       showErrorToast("Insira a UF");
       return;
     }
-    
+
     if (newServiceCity.trim() === "") {
       showErrorToast("Insira a cidade");
       return;
     }
 
-    if (newServiceDescription.trim() === "" ) {
+    if (newServiceDescription.trim() === "") {
       showErrorToast("Insira uma descrição");
       return;
     }
-      
+
     const serviceRef = database.ref("services");
     await serviceRef.push({
       category: newServiceCategory,
       price: newServicePrice,
       description: newServiceDescription,
       authorId: user?.id,
+      authorName: user?.name,
+      authorEmail: user?.email,
+      authorAvatar: user?.avatar,
       uf: newServiceUF,
       city: newServiceCity,
     });
@@ -77,7 +84,7 @@ export function Service() {
         primary: "#101010",
         secondary: "#FBFF35",
       },
-    })
+    });
   }
 
   return (
@@ -93,9 +100,11 @@ export function Service() {
               onChange={(event) => setNewServiceCategory(event.target.value)}
               value={newServiceCategory}
             >
-              <option value="none">Categoria</option>
-              <option value="jardinagem">Jardinagem</option>
-              <option value="faxina">Faxina</option>
+              <option value="">Categoria</option>
+              <option value="Jardinagem">Jardinagem</option>
+              <option value="Faxina">Faxina</option>
+              <option value="Fotógrafo">Fotógrafo</option>
+              <option value="Eletricista">Eletricista</option>
             </select>
           </div>
 
@@ -121,7 +130,6 @@ export function Service() {
               >
                 <option value="">UF</option>
                 <option value="GO">GO</option>
-                <option value="MG">MG</option>
               </select>
             </div>
 
@@ -133,8 +141,10 @@ export function Service() {
                 value={newServiceCity}
               >
                 <option value="">Cidade</option>
-                <option value="urutai">Urutaí</option>
-                <option value="pires">Pires do Rio</option>
+                <option value="Urutaí">Urutaí</option>
+                <option value="Pires do Rio">Pires do Rio</option>
+                <option value="Ipameri">Ipameri</option>
+                <option value="Orizona">Orizona</option>
               </select>
             </div>
           </div>

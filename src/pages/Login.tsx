@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
 
 import logoImg from "../assets/images/logo.svg";
 import { Button } from "../components/Button";
@@ -8,15 +7,6 @@ import "../styles/auth.scss";
 import "../styles/input-container.scss";
 
 export function Login() {
-  const navigate = useNavigate();
-  const { user, signInWithGoogle } = useAuth();
-
-  async function signIn() {
-    if(!user) {
-      await signInWithGoogle();
-    }
-    navigate("/home");
-  }
 
   return (
     <main id="page-auth">
@@ -36,7 +26,7 @@ export function Login() {
             placeholder="Senha"
           />
         </div>
-        <Button onClick={signIn}>Entrar</Button>
+        <Button>Entrar</Button>
         <Link to="/profile">
           Não tem uma conta? <span>Cadastre-se</span>
         </Link>

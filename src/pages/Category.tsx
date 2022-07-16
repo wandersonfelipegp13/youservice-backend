@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { MenuBar } from "../components/MenuBar";
 
+import { useAuth } from "../hooks/useAuth";
+
 import "../styles/service-list.scss";
 import "../styles/service.scss";
 import "../styles/category.scss";
@@ -13,7 +15,13 @@ type Category = {
 export function Category() {
   const navigate = useNavigate();
 
+  const { user } = useAuth();
   const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    if (!user) navigate('/')
+  }, []);
+
 
   useEffect(() => {
     setCategories([
