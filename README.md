@@ -13,19 +13,20 @@
 </div>
 
 
-## Sobre
+## 💻 Sobre
 
 <p align="justify">
     YouService é um projeto de um site para busca e venda de prestação de serviços em geral.
     Desenvolvido com React.js e rodandando com node.js, o projeto usa o sistema de autenticação e armazenamento do Firebase.
 </p>
 
-## Design
+## 🔖 Design
 
-    <img 
-        style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" 
-        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwYi862ECfPmoVromRPu9Ql%2FYouService-Web%3Fnode-id%3D0%253A1" 
-        allowfullscreen></img>
+O Layout do site está disponível [aqui](https://www.figma.com/file/wYi862ECfPmoVromRPu9Ql/YouService-Web?node-id=0%3A1).
 
-## Como rodar
-...
+## 🚀 Como rodar
+
+<p align="justify">
+    Rode o comando `npm install`, no seu terminal, para instalar as dependencias do projeto e posteriormente 
+    rode o comando `npm start`, para executar o projeto.
+</p>
