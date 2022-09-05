@@ -26,5 +26,5 @@ O Layout do site está disponível [aqui](https://www.figma.com/file/wYi862ECfPm
 
 ## 🚀 Como rodar
 
-Rode o comando `npm install`, no seu terminal, para instalar as dependencias do projeto e posteriormente 
+Rode o comando `npm install`, no seu terminal, para instalar as dependências do projeto e posteriormente 
 rode o comando `npm start`, para executar o projeto.
